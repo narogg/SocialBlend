@@ -73,7 +73,7 @@
 							 $( "#flickr").append( " <a href="+item.link+" target='_blank'><img src="+item.media.m+" class='img-thumbnail img-responsive'></img></a>");							
 							if ( i == 20 ) return false;
 						  });
-					    }  
+					    }   
 					    else {
 						 $( "#flickr").append( " <p>Sorry no photos tagged '"+$("#searchTerm").val()+"' </p>");
 						 // fancy no data response
