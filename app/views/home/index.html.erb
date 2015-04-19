@@ -1,0 +1,105 @@
+<!-- Search API's Row -->
+        <div class="row">
+            <div class="col-md-4 portfolio-item">
+			<div class="form-group">
+				<label for="username">Username@GitHub</label>
+				<form class="form-inline">
+					<input type="text" class="form-control" id="username" placeholder="Enter username @GitHub" size ="35">
+					<button type="button" id= "srch" class="btn btn-default">Search</button>		   
+				</form>
+			</div>
+				
+            </div>
+			
+            <div class="col-md-4 portfolio-item">
+			<div class="form-group">
+				<label for="username">Username@Twitter</label>
+				<!--<form class="form-inline">-->
+				<%= form_tag(home_index_path, :method => "index", :remote => true, :class => "form-inline") do %>
+					<%#= label_tag(:q, "Search for:") %>
+					<%#= text_field_tag :q %>
+					<input type="text" class="form-control" id="q" name = "q" placeholder="Enter username @Twitter" size ="35">
+					<%= submit_tag "Search", class: "btn btn-default" %>
+				<% end %>
+				<!--</form>	-->
+			</div>
+               
+            </div>
+			
+            <div class="col-md-4 portfolio-item">
+			<div class="form-group">
+				<label for="username">Search stuff @Flickr</label>
+				<form class="form-inline">		
+				<input type="text" class="form-control" id="searchTerm" placeholder="Search stuff @Flickr" size ="35">
+				<button type="button" id= "srchFlickr" class="btn btn-default" >Search </button>	   		   	  		   
+				</form>
+			</div>                			
+            </div>
+			
+        </div>
+        <!-- /.row -->
+
+		<!-- API data row -->
+		
+		<div class="col-md-4 portfolio-item ">
+			<div class="form-group">
+			<div class="loading" style="display:none"> <%= image_tag "loading-ajax.gif", :class=> "fixed_width"%>	
+			</div>
+			<div class="mydiv" style="display:none"> 
+				<table class="table table-bordered">
+				  <tr>
+				  <td>
+				  <div class="media">                
+				    <div class="media-left">
+                    <!-- content -->
+                    </div>
+                    <div class="media-body">
+                     <!-- content-->
+                     
+                    </div>                   
+				  </div>				
+				  </td>
+				  </tr>
+				</table>		
+			</div>
+
+				<!-- 3rd party widget
+				<a class="embedly-card" href="http://github.com/dhh"></a>
+				<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>				
+				-->
+			</div>
+		</div>
+		
+				
+				
+				
+				
+					
+			<div class="col-md-4 portfolio-item">
+			<div class="form-group">
+			<div class = "tweets" id="tweets">
+	
+			<!-- Twitter API results feeded -->
+			</div>
+			</div>
+			</div>
+			
+			
+			<div class="col-md-4 portfolio-item">
+			<div class="form-group">
+			<div class="loadingFlickr" style="display:none"> <%= image_tag "loading-ajax.gif", :class=> "fixed_width"%>			
+			</div>
+				
+			<div id="flickr" style="display:none">
+			</div>	
+			</div>	
+			</div>	
+				
+               
+            
+			
+				
+				
+			
+
+	<%= render 'footer' %>  
