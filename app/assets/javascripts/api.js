@@ -60,7 +60,7 @@
 					  $('#flickr').hide();
 					  $('#flickr').empty();					  
 					  $('.loadingFlickr').show();
-                      $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+                      $.getJSON("//api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
                       {
                         tags: $("#searchTerm").val(),
                         tagmode: "any",
