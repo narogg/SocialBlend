@@ -19,7 +19,7 @@
 					<%#= label_tag(:q, "Search for:") %>
 					<%#= text_field_tag :q %>
 					<input type="text" class="form-control" id="q" name = "q" placeholder="Enter username @Twitter" size ="35">
-					<%= submit_tag "Search", class: "btn btn-default" %>
+					<%= submit_tag "Search", class: "btn btn-default", id:"srchTwtr"%>
 				<% end %>
 				<!--</form>	-->
 			</div>
@@ -77,6 +77,8 @@
 					
 			<div class="col-md-4 portfolio-item">
 			<div class="form-group">
+			<div class="loadingTwitter" style="display:none"> <%= image_tag "loading-ajax.gif", :class=> "fixed_width"%>	
+			</div>
 			<div class = "tweets" id="tweets">
 	
 			<!-- Twitter API results feeded -->

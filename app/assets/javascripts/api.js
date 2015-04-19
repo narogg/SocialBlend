@@ -84,6 +84,9 @@
 					  $('.loadingFlickr').fadeOut();
 					  $('#flickr').show();
                     });
-    
+					
+				$("#srchTwtr").click(function(){
+					  $('.loadingTwitter').show();
+				});
 					
 		});		
