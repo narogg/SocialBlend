@@ -4,7 +4,7 @@
 			<div class="form-group">
 				<label for="username">Username@GitHub</label>
 				<form class="form-inline">
-					<input type="text" class="form-control" id="username" placeholder="Enter username @GitHub" size ="35">
+					<input type="text" class="form-control" id="username" placeholder="Username @GitHub" >
 					<button type="button" id= "srch" class="btn btn-default">Search</button>		   
 				</form>
 			</div>
@@ -18,7 +18,7 @@
 				<%= form_tag(home_index_path, :method => "index", :remote => true, :class => "form-inline") do %>
 					<%#= label_tag(:q, "Search for:") %>
 					<%#= text_field_tag :q %>
-					<input type="text" class="form-control" id="q" name = "q" placeholder="Enter username @Twitter" size ="35">
+					<input type="text" class="form-control" id="q" name = "q" placeholder="Username @Twitter">
 					<%= submit_tag "Search", class: "btn btn-default", id:"srchTwtr"%>
 				<% end %>
 				<!--</form>	-->
@@ -30,7 +30,7 @@
 			<div class="form-group">
 				<label for="username">Search stuff @Flickr</label>
 				<form class="form-inline">		
-				<input type="text" class="form-control" id="searchTerm" placeholder="Search stuff @Flickr" size ="35">
+				<input type="text" class="form-control" id="searchTerm" placeholder="Search stuff @Flickr">
 				<button type="button" id= "srchFlickr" class="btn btn-default" >Search </button>	   		   	  		   
 				</form>
 			</div>                			
@@ -46,7 +46,7 @@
 			<div class="loading" style="display:none"> <%= image_tag "loading-ajax.gif", :class=> "fixed_width"%>	
 			</div>
 			<div class="mydiv" style="display:none"> 
-				<table class="table table-bordered">
+				<table class="table table-bordered table-responsive">
 				  <tr>
 				  <td>
 				  <div class="media">                
