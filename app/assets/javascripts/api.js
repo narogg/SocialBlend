@@ -10,28 +10,41 @@
  *            http://
  */
 // Klikom na search button uzmi vrijednost userNamea
-		$(document).ready(function(){
-					$( "#srch" ).click(function() {					
+		$(document).ready(function(){				
+		
+					$("#srch" ).click(function() {					
 						var userName = $("#username").val();
+						$('.err_div').hide();
 						$('.mydiv').hide();
 						$('.loading').show();
 
 				        function printGitHubCard() {
 	                    var responseObj = JSON.parse(this.responseText);
-	                       //console.log(responseObj.name + " has " + responseObj.public_repos + " public repositories!");
-						   //console.log(responseObj.name + " has an avatar @ " + responseObj.avatar_url + " url!");
+	                       // console.log(responseObj.name + " has " + responseObj.public_repos + " public repositories!");
+						   // console.log(responseObj.name + " has an avatar @ " + responseObj.avatar_url + " url!");
 						   // iscrtaj card s json podacima
-						   $( ".media-left" ).empty(); // obrise podatke od ranije if any
-						   $( ".media-body" ).empty(); // obrise podatke od ranije if any
+						   $(".media-left").empty();
+						   $(".media-body").empty(); 
+						   $(".err_div" ).empty(); // del error msg if any from before
 					       
 					       
-						   $( ".media-left").append( " <a href="+responseObj.html_url+" target=_'blank'><img class='fixed_width img-rounded' src="+responseObj.avatar_url+" alt='GitHub avatar'></a> ");						
-						   $( ".media-body").append( " <h4 class='media-heading'>"+responseObj.name+" <a class='btn btn-default pull-right' href="+responseObj.html_url+" target='_blank' role='button'>Follow</a> </h4> ");
-						   $( ".media-body").append( " <h5 >@"+responseObj.login+"</h5> ");
-						   $( ".media-body").append( " <table class= 'table table-bordered'><td> Repos: <strong>"+responseObj.public_repos+"</strong> </td><td>Gists: <strong>"+responseObj.public_gists+"</strong></td><td> Followers:<strong>" +responseObj.followers+ " </strong>   </td></table>");
+						   if (responseObj.message != "Not Found")
+						   { // if acct is not foundon github it returns message "Not Found"						   						  
+						     $( ".media-left").append( " <a href="+responseObj.html_url+" target=_'blank'><img class='fixed_width img-rounded' src="+responseObj.avatar_url+" alt='GitHub avatar'></a> ");						
+						     $( ".media-body").append( " <h4 class='media-heading'>"+responseObj.name+" <a class='btn btn-default pull-right' href="+responseObj.html_url+" target='_blank' role='button'>Follow</a> </h4> ");
+						     $( ".media-body").append( " <h5 >@"+responseObj.login+"</h5> ");
+						     $( ".media-body").append( " <table class= 'table table-bordered'><td> Repos: <strong>"+responseObj.public_repos+"</strong> </td><td>Gists: <strong>"+responseObj.public_gists+"</strong></td><td> Followers:<strong>" +responseObj.followers+ " </strong>   </td></table>");						   
+						     $('.mydiv').fadeIn();
+						     $('.loading').hide();
+						   }
+						   else {
+							 $(".err_div" ).empty(); 
+						     $(".err_div").append( " <p> No such GitHub profile.</p> ");
+							 $(".err_div").fadeIn();
+							 $(".loading").hide();
+							 
+						   }
 						   
-						   $('.mydiv').fadeIn();
-						   $('.loading').hide();
 	                    }
 
 	                    var request = new XMLHttpRequest();
@@ -90,7 +103,7 @@
 				});
 				
 				
-				
+			// if window is scrolled down show link to scroll upp
 			$(window).scroll(function(){				
 				if ($(this).scrollTop() > 100) {
 				$('.scrollToTop').fadeIn();

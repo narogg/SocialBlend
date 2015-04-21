@@ -1,7 +1,13 @@
 <!-- Twitter API results feeded -->
 <% if @tweets.present? %>
 			<table class="table table-bordered">
-				<th><%= @search_term%>'s tweets</th>
+			
+				<% if @search_term.present? %>
+					<th><%= @search_term%>'s tweets</th>
+				<% else %>
+					<th> CNN's tweets </th>
+				<% end %>
+				
 				<tr><td>
 				<% @tweets.each do |tweet| %>				
 					<p class="text-muted"><%= tweet.user.name%> <a href="https://www.twitter.com/@<%= tweet.user.screen_name%>" target="_blank">@<%= tweet.user.screen_name%> </a> <%= tweet.created_at.strftime("%d %B %Y  %H:%M")%></p>
@@ -14,5 +20,5 @@
 				</td>
 				</table>
 <% else %>
-	<p> No data. </p>
+	<p> No such Twitter profile. </p>
 <% end %>				
