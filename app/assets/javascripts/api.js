@@ -23,17 +23,17 @@
 	                       // console.log(responseObj.name + " has " + responseObj.public_repos + " public repositories!");
 						   // console.log(responseObj.name + " has an avatar @ " + responseObj.avatar_url + " url!");
 						   // iscrtaj card s json podacima
-						   $(".media-left").empty();
-						   $(".media-body").empty(); 
+						   $("#gh_media-left").empty();
+						   $("#gh_media-body").empty(); 
 						   $(".err_div" ).empty(); // del error msg if any from before
 					       
 					       
 						   if (responseObj.message != "Not Found")
 						   { // if acct is not foundon github it returns message "Not Found"						   						  
-						     $( ".media-left").append( " <a href="+responseObj.html_url+" target=_'blank'><img class='fixed_width img-rounded' src="+responseObj.avatar_url+" alt='GitHub avatar'></a> ");						
-						     $( ".media-body").append( " <h4 class='media-heading'>"+responseObj.name+" <a class='btn btn-default pull-right' href="+responseObj.html_url+" target='_blank' role='button'>Follow</a> </h4> ");
-						     $( ".media-body").append( " <h5 >@"+responseObj.login+"</h5> ");
-						     $( ".media-body").append( " <table class= 'table table-bordered'><td> Repos: <strong>"+responseObj.public_repos+"</strong> </td><td>Gists: <strong>"+responseObj.public_gists+"</strong></td><td> Followers:<strong>" +responseObj.followers+ " </strong>   </td></table>");						   
+						     $( "#gh_media-left").append( " <a href="+responseObj.html_url+" target=_'blank'><img class='fixed_width img-rounded' src="+responseObj.avatar_url+" alt='GitHub avatar'></a> ");						
+						     $( "#gh_media-body").append( " <h4 class='media-heading'>"+responseObj.name+" <a class='btn btn-default pull-right' href="+responseObj.html_url+" target='_blank' role='button'>Follow</a> </h4> ");
+						     $( "#gh_media-body").append( " <h5 >@"+responseObj.login+"</h5> ");
+						     $( "#gh_media-body").append( " <table class= 'table table-bordered'><td> Repos: <strong>"+responseObj.public_repos+"</strong> </td><td>Gists: <strong>"+responseObj.public_gists+"</strong></td><td> Followers:<strong>" +responseObj.followers+ " </strong>   </td></table>");						   
 						     $('.mydiv').fadeIn();
 						     $('.loading').hide();
 						   }

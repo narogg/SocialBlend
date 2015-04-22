@@ -1,22 +1,50 @@
 <!-- Twitter API results feeded -->
 <% if @tweets.present? %>
 			<table class="table table-bordered">
+				<!--
+                <div class="media">
+                  <div class="media-left">
+                    <a href="#">
+                      <img class="media-object" src="..." alt="...">
+                    </a>
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading">Media heading</h4>
+                    neki twxt
+                  </div>
+                </div>
+				-->
+			
 			
 				<% if @search_term.present? %>
 					<th><%= @search_term%>'s tweets</th>
-				<% else %>
-					<th> CNN's tweets </th>
 				<% end %>
 				
 				<tr><td>
-				<% @tweets.each do |tweet| %>				
-					<p class="text-muted"><%= tweet.user.name%> <a href="https://www.twitter.com/@<%= tweet.user.screen_name%>" target="_blank">@<%= tweet.user.screen_name%> </a> <%= tweet.created_at.strftime("%d %B %Y  %H:%M")%></p>
-					<%= image_tag(tweet.user.profile_image_url, :class => 'img-rounded') %>
-					<strong><%= auto_link(tweet.text, :html => { :target => '_blank' }) %></strong> 
-					
-					<br>
-					<hr>
+				<% @tweets.each do |tweet| %>	
+
+				<div class="media">
+				<p class="text-muted"><%= tweet.user.name%> <a href="https://www.twitter.com/@<%= tweet.user.screen_name%>" target="_blank">@<%= tweet.user.screen_name%> </a> <%= tweet.created_at.strftime("%d %B %Y  %H:%M")%></p>
+                  <div class="media-left">
+                    <a href="https://www.twitter.com/@<%= tweet.user.screen_name%>" target="_blank">
+                      <img class="media-object img-rounded" src="<%=tweet.user.profile_image_url%>" target="_blank" alt="Twitter user image">
+                    </a>
+                  </div>
+                  <div class="media-body">
+                    <h5 class="media-heading"><strong><%= auto_link(tweet.text, :html => { :target => '_blank' }) %></strong> </h5>
+                  </div>
+                </div>				
+				<hr>
+
+				<!--
+				<p class="text-muted"><%= tweet.user.name%> <a href="https://www.twitter.com/@<%= tweet.user.screen_name%>" target="_blank">@<%= tweet.user.screen_name%> </a> <%= tweet.created_at.strftime("%d %B %Y  %H:%M")%></p>
+				<%= image_tag(tweet.user.profile_image_url, :class => 'img-rounded') %>
+				<strong><%= auto_link(tweet.text, :html => { :target => '_blank' }) %></strong> 					
+				<br>
+				<hr>
+				-->
 				<% end %>
+				
 				</td>
 				</table>
 <% else %>
