@@ -3,11 +3,7 @@ respond_to :html, :js
 	
 	# require 'twitter'
 	# sferik configuration
-    $client = Twitter::REST::Client.new do |config|
-      config.consumer_key    = "CLDtjEH3EbZ5PikX9pgseIA14"
-      config.consumer_secret = "RdRY1YFHKdnqzfyX1DVFDVQgXwkMdaS5j5PnrK31apwNmKNLIV"
-	  config.access_token        = "1662947316-SYZgu8Lplat1CjOu6e9LQgoMWhp4yzt6b6yzrxh"
-      config.access_token_secret = "OAD4tyKlLfPViVdvZvpKyGd8ztfJdYZpLCKSf4sfNZDfd"
+    
 	end
 
    
